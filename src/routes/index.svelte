@@ -1,5 +1,6 @@
 <script>
 	import { getWeatherFrom } from "../services/weather.js";
+	import WeatherFooter from "../components/weather-footer.svelte";
 	const weatherPromise = getWeatherFrom();
 </script>
 
@@ -18,7 +19,7 @@
 	}
 	h3{
 		font-weight: 400;
-		transform: rotate(90deg);
+		transform: rotate(-90deg);
 		position: absolute;
 		top: 30px;
 		right: 15px;
@@ -31,4 +32,5 @@
 	<h3>{weather.conditionText}</h3>
 	<h4>{weather.windSpeed}</h4>
 {/await}
+<WeatherFooter />
 
