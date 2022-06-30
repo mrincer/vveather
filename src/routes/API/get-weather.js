@@ -10,7 +10,7 @@ const FETCH_OPTIONS = {
 export async function get(event){
     const { searchParams } = event.url;
     const query = searchParams.get('q') ?? 'Rivas, Nicaragua';
-    console.log(query);
+    console.log(query)
 
     const response = await  fetch(
             `https://weatherapi-com.p.rapidapi.com/current.json?q=${query}`,
@@ -30,10 +30,11 @@ export async function get(event){
         wind_kph,
         wind_dir
     } = current;
-    const { code, text } = condition;
+    const { code, icon, text } = condition;
 
     const body ={
         conditionCode: code,
+        conditionIcon: icon,
         conditionText: text,
         country,
         localtime,

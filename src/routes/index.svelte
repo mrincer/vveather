@@ -1,6 +1,7 @@
 <script>
 	import { getWeatherFrom } from "../services/weather.js";
 	import WeatherFooter from "../components/weather-footer.svelte";
+	import WeatherIcon from "../components/weather-icon.svelte";
 	const weatherPromise = getWeatherFrom();
 </script>
 
@@ -30,7 +31,7 @@
 	<h1>{weather.locationName}</h1>
 	<h2>{weather.temperature}</h2>
 	<h3>{weather.conditionText}</h3>
-	<h4>{weather.windSpeed}</h4>
+	<WeatherIcon icon={weather.conditionIcon} text={weather.conditionText}/>
 {/await}
 <WeatherFooter />
 
